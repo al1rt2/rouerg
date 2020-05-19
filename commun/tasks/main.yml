@@ -1,0 +1,18 @@
+---
+# tasks file for common
+
+- name: Installation des logiciels communs
+  apt: name= ["vim", "tree", "git", "htop"]  
+    state: latest 
+    update_cache: yes
+  become: yes
+- name: tooling docker
+  apt: name= ["docker.io", "python-docker"]
+    state: latest 
+    update_cache: yes
+  become: yes
+- name: tooling mysql
+  apt: name= ["mysql-client", "python-mysqldb"]
+    state: latest 
+    update_cache: yes
+  become: yes
