@@ -2,17 +2,18 @@
 # tasks file for common
 
 - name: Installation des logiciels communs
-  apt: name= ["vim", "tree", "git", "htop"]  
+  apt: 
+    pkg: ["vim", "tree", "htop"]  
     state: latest 
     update_cache: yes
   become: yes
 - name: tooling docker
-  apt: name= ["docker.io", "python-docker"]
+  apt: 
+    pkg: ["docker.io", "python3-docker"]
     state: latest 
-    update_cache: yes
   become: yes
 - name: tooling mysql
-  apt: name= ["mysql-client", "python-mysqldb"]
+  apt: 
+    pkg: ["mysql-client", "python3-mysqldb"]
     state: latest 
-    update_cache: yes
   become: yes

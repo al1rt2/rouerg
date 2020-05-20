@@ -4,3 +4,10 @@
   tasks:
     - name: ping des serveurs
       ping: 
+    - name: test d'install par pkg 
+      apt:  
+        pkg: ["vim", "tree", "htop"] 
+        state: latest 
+        update_cache: yes
+      become: yes    
+...

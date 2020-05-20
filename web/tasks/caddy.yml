@@ -6,14 +6,15 @@
     - "{{ caddy_certs_directory }}"
     - "{{ caddy_vhosts_directory }}"
     - "{{ caddy_log_directory }}"
+  become: yes
 
 - name: Copie du fichier Caddyfile
   copy: src=Caddyfile dest=/var/caddy/Caddyfile
-
+  become: yes
 - name: Copie des templates vhosts
   template: src={{ item.src }} dest={{ item.dest }}
   with_items: "{{ caddy_vhosts }}"
-
+  become: yes
 - name: Création du container Caddy
   docker_container:
     name: caddy
@@ -32,3 +33,4 @@
       - "{{ caddy_log_directory }}:/var/log"
     links:
       - wordpress
+  become: yes

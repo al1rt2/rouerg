@@ -6,6 +6,7 @@
   with_items:
     - "{{ data_directory }}"
     - "{{ log_directory }}"
+  become: yes
 
 - name: Installation du container mariadb
   docker_container:
@@ -21,3 +22,4 @@
       - "{{ log_directory }}:/var/log"
     env:
       MYSQL_ROOT_PASSWORD: "{{ mariadb_root_password }}"
+  become: yes
