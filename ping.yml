@@ -1,0 +1,6 @@
+---
+# test de connexion 
+- hosts: all
+  tasks:
+    - name: ping des serveurs
+      ping: 
